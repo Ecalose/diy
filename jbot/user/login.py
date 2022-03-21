@@ -101,7 +101,9 @@ async def user_login(event):
                 await user.send_code_request(phone.raw_text, force_sms=True)
                 msg = await conv.send_message('请输入手机验证码:\n例如`code12345code`\n两边的**code**必须有！')
                 code = await conv.get_response()
-                await user.sign_in(phone.raw_text, code.raw_text.replace('code', ''))
+                msg = await conv.send_message('请输入二步验证')
+                passd = await conv.get_response()
+                await user.sign_in(phone.raw_text, code.raw_text.replace('code', ''),password=passd.raw_text)
                 await jdbot.send_message(chat_id, '恭喜您已登录成功！\n自动重启中！')
             start()
     except asyncio.exceptions.TimeoutError:
