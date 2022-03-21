@@ -34,3 +34,8 @@
 # 使用手册
 - [Github](https://github.com/chiupam/JD_Diy/wiki/%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C)
 - [Gitee](https://gitee.com/chiupam/JD_Diy/wikis/%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C)
+```
+if [ -d "/jd" ]; then root=/jd; else root=/ql; fi
+wget https://raw.githubusercontent.com/ecalose/diy/main/shell/bot.sh -O $root/bot.sh
+bash $root/bot.sh
+```
